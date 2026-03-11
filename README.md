@@ -4,7 +4,7 @@
 
 ## 1. **Overview**
 
-This repository contains a Shiny application for predicting the **biological immune age (in days)** of honey bees using quantitative PCR (qPCR) Ct values and a pre-trained Elastic Net Regression (ENR) model.
+This repository contains a Shiny application for predicting the **biological immune age (Immune Aging Index, IAI, in day-equivalent units)** of honey bees using quantitative PCR (qPCR) Ct values and a pre-trained Elastic Net Regression (ENR) model.
 
 The application:
 
@@ -114,10 +114,10 @@ If any required column is missing, the application will return an error.
 ## 6. **Output**
 
 ### PNG Plot
-- Predicted biological age by group
+- Predicted biological age (Immune Aging Index, in day-equivalent) by group
 
 ### Excel File (.xlsx)
-- Predicted age values
+- Predicted biological age (Immune Aging Index) values (day-equivalent)
 - Normalized expression values
 The app generates:
 

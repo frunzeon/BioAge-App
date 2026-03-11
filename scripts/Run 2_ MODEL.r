@@ -163,7 +163,7 @@ server <- function(input, output) {
       # Style for Predicted_Age_Day_equivalent column: white bold text on blue background
       predicted_style <- createStyle(fontColour = "#FFFFFF", bgFill = "#1F77B4", textDecoration = "bold")
       addStyle(wb, sheet = "Results", style = predicted_style, 
-               rows = 2:(nrow(df) + 1), cols = which(names(df) == "Predicted_Age_Day-equivalent"), gridExpand = TRUE)
+               rows = 2:(nrow(df) + 1), cols = which(names(df) == "Predicted_Age_Day_equivalent"), gridExpand = TRUE)
       
       saveWorkbook(wb, file, overwrite = TRUE)
     }
@@ -173,7 +173,7 @@ server <- function(input, output) {
     filename = function() { "Predicted_Age_Plot.png" },
     content = function(file) {
       df <- prediction_result()
-      g <- ggplot(df, aes(x = Sampleage, y = Predicted_Age_Day-equivalent)) +
+      g <- ggplot(df, aes(x = Sampleage, y = Predicted_Age_Day_equivalent)) +
         geom_point(color = "steelblue", size = 3) +
         labs(title = "Predicted Age (Immune Aging Index) of Individual Honey Bee Samples",
              x = "Sample", y = "Predicted Age (day-equivalent)") +
@@ -197,4 +197,5 @@ server <- function(input, output) {
 # -------------------------------
 
 shinyApp(ui = ui, server = server)
+
 

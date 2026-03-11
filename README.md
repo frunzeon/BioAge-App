@@ -1,6 +1,6 @@
 # ﻿**Shiny App**
 
-# **Model: Biological Age Prediction of Honey Bees**
+# **Model: Biological Age Prediction of Honey Bees (Immune Aging Index)**
 
 ## 1. **Overview**
 

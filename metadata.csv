@@ -86,5 +86,6 @@ File number,File title,,Column,Meaning,
 ,,17,relExp_SOD1,Relative expression of SOD1.,
 ,,18,relExp_Relish,Relative expression of Relish.,
 ,,19,relExp_Apid1,Relative expression of Apid1.,
-,,20,Predicted_Age_Days,Biological age (Immune Aging Index, IAI, in day-equivalent units) predicted by the Elastic Net Regression model based on normalized gene expression values.,
+,,20,Predicted_Age_Days,Biological age (day-equivalent units) predicted by the Elastic Net Regression model based on normalized gene expression values.,
+
 

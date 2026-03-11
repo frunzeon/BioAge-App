@@ -131,12 +131,12 @@ server <- function(input, output) {
   })
   
   output$result_table <- renderTable({
-    prediction_result() %>% select(Sampleage, Predicted_Age_Days)
+    prediction_result() %>% select(Sampleage, Predicted_Age_Day-equivalent)
   })
   
   output$bee_plot <- renderPlot({
     df <- prediction_result()
-    ggplot(df, aes(x = Sampleage, y = Predicted_Age_Days)) +
+    ggplot(df, aes(x = Sampleage, y = Predicted_Age_Day-equivalent)) +
       geom_point(color = "steelblue", size = 3) +
       labs(title = "Predicted biological age (Immune Aging Index) of Individual Honey Bee Samples",
            x = "Sample", y = "Predicted Age (day-equivalent)") +
@@ -160,10 +160,10 @@ server <- function(input, output) {
       addWorksheet(wb, "Results")
       writeData(wb, "Results", df)
       
-      # Style for Predicted_Age_Days column: white bold text on blue background
+      # Style for Predicted_Age_Day_equivalent column: white bold text on blue background
       predicted_style <- createStyle(fontColour = "#FFFFFF", bgFill = "#1F77B4", textDecoration = "bold")
       addStyle(wb, sheet = "Results", style = predicted_style, 
-               rows = 2:(nrow(df) + 1), cols = which(names(df) == "Predicted_Age_Days"), gridExpand = TRUE)
+               rows = 2:(nrow(df) + 1), cols = which(names(df) == "Predicted_Age_Day-equivalent"), gridExpand = TRUE)
       
       saveWorkbook(wb, file, overwrite = TRUE)
     }
@@ -173,10 +173,10 @@ server <- function(input, output) {
     filename = function() { "Predicted_Age_Plot.png" },
     content = function(file) {
       df <- prediction_result()
-      g <- ggplot(df, aes(x = Sampleage, y = Predicted_Age_Days)) +
+      g <- ggplot(df, aes(x = Sampleage, y = Predicted_Age_Day-equivalent)) +
         geom_point(color = "steelblue", size = 3) +
-        labs(title = "Predicted Age of Individual Honey Bee Samples",
-             x = "Sample", y = "Predicted Age (days)") +
+        labs(title = "Predicted Age (Immune Aging Index) of Individual Honey Bee Samples",
+             x = "Sample", y = "Predicted Age (day-equivalent)") +
         theme_minimal() +
         theme(
           plot.title = element_text(size = 18, face = "bold"),
@@ -197,3 +197,4 @@ server <- function(input, output) {
 # -------------------------------
 
 shinyApp(ui = ui, server = server)
+

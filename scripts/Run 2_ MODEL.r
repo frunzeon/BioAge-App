@@ -1,7 +1,7 @@
 # app.R
 
 # ------------------------------------------------------------------------------
-# # Shiny Bee Age Prediction App
+# # Shiny Bee Age Prediction App (Immune Aging Index)
 # Copyright (c) 2025 Olga Frunze
 # Licensed under the MIT License.
 # See LICENSE file in the repository root for full license text.
@@ -71,7 +71,7 @@ ref <- data.frame(
 # UI
 # -------------------------------
 ui <- fluidPage(
-  titlePanel("Biological Age Prediction of Honey Bees"),
+  titlePanel("Biological Age Prediction of Honey Bees (Immune Aging Index)"),
   sidebarLayout(
     sidebarPanel(
       fileInput("datafile", "Upload Gene Expression File (.txt)", accept = ".txt"),
@@ -138,8 +138,8 @@ server <- function(input, output) {
     df <- prediction_result()
     ggplot(df, aes(x = Sampleage, y = Predicted_Age_Days)) +
       geom_point(color = "steelblue", size = 3) +
-      labs(title = "Predicted Age of Individual Honey Bee Samples",
-           x = "Sample", y = "Predicted Age (days)") +
+      labs(title = "Predicted biological age (Immune Aging Index) of Individual Honey Bee Samples",
+           x = "Sample", y = "Predicted Age (day-equivalent)") +
       theme_minimal() +
       theme(
         plot.title = element_text(size = 18, face = "bold"),
@@ -195,4 +195,5 @@ server <- function(input, output) {
 # -------------------------------
 # Launch the app
 # -------------------------------
+
 shinyApp(ui = ui, server = server)

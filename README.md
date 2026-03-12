@@ -15,7 +15,7 @@ The application:
 - Exports formatted Excel results
 
 The predictive model is hardcoded to ensure reproducibility.
-[DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18972155.svg)](https://doi.org/10.5281/zenodo.18972155)
+- [DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18972155.svg)](https://doi.org/10.5281/zenodo.18972155)
 
 ## 2. **Repository Structure**
 
